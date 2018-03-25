@@ -1,1 +1,1 @@
-### Burger app using Reactjs+Redux
+### Burger app using ReactJs+Redux
