@@ -10,7 +10,7 @@ const controls = [
 ];
 
 const buildControls = (props) => (
-    <div className={classes.BuildControls}>
+    <div className={classes.BuildControls}> 
         { 
             controls.map(ctrl => (
                 <BuildControl 

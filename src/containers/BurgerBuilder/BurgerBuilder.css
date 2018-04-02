@@ -1,0 +1,17 @@
+.BurgerBuilder {
+    max-width: 315px;
+    min-height: 350px;
+}
+
+.TabLink  {
+    cursor: pointer;
+}
+
+.TabPane {
+    background-color: greenyellow;
+}
+
+.TabPane {
+    min-height: 350px;
+}
+
