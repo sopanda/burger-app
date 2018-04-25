@@ -6,6 +6,16 @@
     font-size: 14px;
 }
 
+.List {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ListItem {
+    list-style-type: none;
+}
+
 @media (min-width: 500px) and (min-height: 400px) {
     .Burger {
         width: 350px;
@@ -26,3 +36,5 @@
         height: 600px;
     }
 }
+
+
