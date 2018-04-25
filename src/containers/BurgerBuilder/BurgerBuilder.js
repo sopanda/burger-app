@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Auxiliary from '../../hoc/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import classes from './BurgerBuilder.css';
 import PriceSection from '../../components/PriceSection/PriceSection';
@@ -19,12 +19,7 @@ class BurgerBuilder extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ingredients: {
-                salad: 0,
-                bacon: 0,
-                cheese: 0,
-                meat: 0
-            },
+            ingredients: [],
             totalPrice: 5,
             activeTab: '1'
         };
@@ -40,17 +35,12 @@ class BurgerBuilder extends Component {
     }
 
     addIngredientHandler = (type) => {
-        const oldCount = this.state.ingredients[type];
-        const updatedCount = oldCount + 1;
-        const updatedIngredients = {
-            ...this.state.ingredients
-        };
-        updatedIngredients[type] = updatedCount;
+        const newIngredient = type;
         const priceAdditional = INGREDIENT_PRICES[type];
         const oldPrice = this.state.totalPrice;
         const newPrice = oldPrice + priceAdditional;
-
-        this.setState({totalPrice: newPrice, ingredients: updatedIngredients })
+        this.setState({totalPrice: newPrice, ingredients: [...this.state.ingredients, newIngredient] })
+        console.log(this.state.ingredients);
     }
 
     removeIngredientHandler = (type) => {
