@@ -3,7 +3,12 @@ import BurgerIngredient from '../Burger/BurgerIngredient/BurgerIngredient';
 import classes from './Burger.css';
 import {SortableContainer, arrayMove, SortableElement} from 'react-sortable-hoc';
 
-const SortableItem = SortableElement(({value, i}) => <li className={classes.ListItem}><BurgerIngredient key={value + i} type={value}/></li> );
+const SortableItem = SortableElement(({value, i}) => {
+    return(    
+        <li className={classes.ListItem}>
+            <BurgerIngredient key={value + i} type={value}/>
+        </li> 
+    )});
 
 const SortableList = SortableContainer(({items}) => {
     let transformedIngredients = items.map((value, index) => (
@@ -44,7 +49,7 @@ class Burger extends Component  {
         return (
                 <div className={classes.Burger}>
                     <BurgerIngredient type = "bread-top"/>
-                        <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />
+                        <SortableList items={this.state.items} onSortEnd={this.onSortEnd}/>
                     <BurgerIngredient type = "bread-bottom"/>
                 </div>
             );
