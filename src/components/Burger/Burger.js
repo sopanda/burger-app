@@ -1,47 +1,62 @@
-import React from 'react';
+import React, {PureComponent } from 'react';
 import BurgerIngredient from '../Burger/BurgerIngredient/BurgerIngredient';
 import classes from './Burger.css';
 import {SortableContainer, arrayMove, SortableElement} from 'react-sortable-hoc';
-import Auxiliary from '../../hoc/Auxiliary';
 
-const SortableItem = SortableElement(({value, index}) => <BurgerIngredient key={value + index} type={value} />);
+const SortableItem = SortableElement(({value, index, i}) => <BurgerIngredient key={value + i} type={value} /> );
 
 const SortableList = SortableContainer(({items}) => {
-    if (items.length === 0) {
-        items = <p>Please start adding ingredients!</p>
-    }
-    return (
-      <Auxiliary>
-        {
-            items
-        }
-    </Auxiliary>
-    );
-});
-  
-
-const burger = (props) => {
-    let transformedIngredients = Object.keys(props.ingredients) // this means, that extracts a keys and turns into array
-        .map(igKey => {
-            return [...Array(props.ingredients[igKey])].map((_, i) => {
-                return <SortableItem key={igKey + i} index={i} value={igKey} />
+    let itemInd = 0;
+    let transformedIngredients = Object.keys(items) // this means, that extracts a keys and turns into array
+        .map((igKey) => {
+            return [...Array(items[igKey])].map((_, i) => {
+                itemInd++;
+                return <SortableItem key={"item" + itemInd} index={itemInd} i={i} value={igKey} />
             });
         })
         .reduce((arr, el) => {
             return arr.concat(el)
         }, []); // transforming Object into an Array
+    
+    if (transformedIngredients.length === 0) {
+        transformedIngredients = <p>Please start adding ingredients!</p>
+    }
+    return transformedIngredients;
+});
+  
 
-    console.log(transformedIngredients);
+class Burger extends PureComponent  {
+    constructor(props) {
+        super(props);
+        this.state = {
+            items: []
+        }
+    }
 
-    return (
-        <div className={classes.Burger}>
-            <BurgerIngredient type = "bread-top"/>
+    componentDidUpdate() {
+        // this.setState({
+        //     items: this.props.ingredients
+        // });
+    }
 
-            <SortableList items={transformedIngredients} />
+    onSortEnd = ({oldIndex, newIndex}) => {
+        // this.setState({
+        //     items: arrayMove(this.state.items, oldIndex, newIndex)
+        // });
+    }
 
-            <BurgerIngredient type = "bread-bottom"/>
-        </div>
-    );
-};
+    render() {
+        // console.log(this.state.items);
+        return (
+                <div className={classes.Burger}>
+                    <BurgerIngredient type = "bread-top"/>
 
-export default burger;
+                    <SortableList items={this.props.ingredients} onSortEnd={this.onSortEnd}/>
+
+                    <BurgerIngredient type = "bread-bottom"/>
+                </div>
+            );
+        };
+    }
+
+export default Burger;
