@@ -49,7 +49,7 @@ class Burger extends Component  {
         return (
                 <div className={classes.Burger}>
                     <BurgerIngredient type = "bread-top"/>
-                        <SortableList items={this.state.items} onSortEnd={this.onSortEnd}/>
+                        <SortableList items={this.state.items} onSortEnd={this.onSortEnd} lockAxis="y"/>
                     <BurgerIngredient type = "bread-bottom"/>
                 </div>
             );

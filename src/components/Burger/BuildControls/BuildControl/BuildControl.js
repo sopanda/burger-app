@@ -14,7 +14,6 @@ const buildControl = (props) => (
             color="danger"
             className={classes.Less}
             onClick={props.removed}
-            disabled={props.disabled}
         >Less</Button>
     </div>
 );
