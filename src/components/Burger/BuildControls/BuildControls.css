@@ -1,9 +1,6 @@
 .BuildControls {
     display: flex;
-    align-items: center;
     flex-flow: column;
-    height: 350px;
-    justify-content: center;
-    margin: auto;
     padding: 10px 0;
+    max-width: 300px;
 }

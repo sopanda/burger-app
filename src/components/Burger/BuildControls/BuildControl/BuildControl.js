@@ -4,12 +4,12 @@ import { Button } from 'reactstrap';
 
 const buildControl = (props) => (
     <div className={classes.BuildControl}>
-        <div className={classes.Label}>{props.label}</div>
         <Button
             color="primary" 
             className={classes.More}
             onClick={props.added}
         >More</Button>
+        <div className={classes.Label}>{props.label}</div>
         <Button 
             color="danger"
             className={classes.Less}

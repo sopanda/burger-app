@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Auxiliary from '../../hoc/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
-import classnames from 'classnames';
+import { Row, Col, Button } from 'reactstrap';
 import classes from './BurgerBuilder.css';
 import PriceSection from '../../components/PriceSection/PriceSection';
 
@@ -20,19 +19,9 @@ class BurgerBuilder extends Component {
         super(props);
         this.state = {
             ingredients: [],
-            totalPrice: 5,
-            activeTab: '1'
+            totalPrice: 5
         };
-        this.toggle = this.toggle.bind(this);
       }
-
-      toggle(tab) {
-        if (this.state.activeTab !== tab) {
-          this.setState({
-            activeTab: tab
-          });
-        }
-    }
 
     addIngredientHandler = (type) => {
         const newIngredient = type;
@@ -65,52 +54,27 @@ class BurgerBuilder extends Component {
     render() {
         return (
             <Auxiliary>
-                <Row>
-                    <Col md="2" sm="2">
-                        <PriceSection price={this.state.totalPrice}/>
-                    </Col>
-                    <Col md="6" sm="6">
+                <Row className={classes.Wrapper}>
+                    <Col md="7" sm="7">
                         <Burger ingredients={this.state.ingredients}/>
                     </Col>
-                    <Col md="4" sm="4">
+                    <Col md="5" sm="5">
                         <div className={classes.BurgerBuilder}>
-                            <Nav tabs>
-                                <NavItem className={classes.NavItem}>
-                                    <NavLink
-                                    className={classnames({ active: this.state.activeTab === '1' }) + " " + classes.TabLink}
-                                    onClick={() => { this.toggle('1'); }}
-                                    >
-                                    Ingredients
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem className={classes.NavItem}>
-                                    <NavLink
-                                    className={classnames({ active: this.state.activeTab === '2' }) + " " + classes.TabLink}
-                                    onClick={() => { this.toggle('2'); }}
-                                    >
-                                    Drinks
-                                    </NavLink>
-                                </NavItem>
-                            </Nav>
-                            <TabContent activeTab={this.state.activeTab}>
-                                <TabPane tabId="1" className={classes.TabPane}>
-                                    <Row>
-                                        <Col md="12" sm="12">
-                                            <BuildControls 
-                                                ingredientAdded= {this.addIngredientHandler }
-                                                ingredientRemoved= {this.removeIngredientHandler}
-                                            />
-                                        </Col>
-                                    </Row>
-                                </TabPane>
-                                <TabPane tabId="2" className={classes.TabPane}>
-                                    <Row>
-                                        <Col md="12" sm="12">
-                                            <p>Here will be list of drinks</p>
-                                        </Col>
-                                    </Row>
-                                </TabPane>
-                            </TabContent>
+                                <h2>Ingredients</h2>
+                                <BuildControls 
+                                    ingredientAdded= {this.addIngredientHandler }
+                                    ingredientRemoved= {this.removeIngredientHandler}
+                                />
+                                <h2>Drinks</h2>
+                                <p>Here will be list of drinks</p>
+                                <Row>
+                                    <Col md="6" sm="6">
+                                        <PriceSection price={this.state.totalPrice}/>
+                                    </Col>
+                                    <Col md="6" sm="6">
+                                        <Button>Make order</Button>
+                                    </Col>
+                                </Row>
                         </div>
                     </Col>
                 </Row>

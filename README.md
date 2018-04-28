@@ -1,1 +1,1 @@
-### Burger app using ReactJs+Redux
+### Application for burger stores
