@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classes from './BurgerIngredient.css';
-import {SortableElement} from 'react-sortable-hoc';
 
 class BurgerIngredient extends Component {
     render () {
