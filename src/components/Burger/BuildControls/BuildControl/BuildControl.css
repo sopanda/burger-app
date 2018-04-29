@@ -5,48 +5,6 @@
     margin: 5px 0;
 }
 
-.BuildControl button {
-    display: block;
-    font: inherit;
-    padding: 5px;
-    margin: 0 5px;
-    width: 80px;
-    outline: none;
+.Less, .More {
     cursor: pointer;
-}
-
-.BuildControl button:disabled {
-    color: #ccc;
-    cursor: default;
-}
-
-.BuildControl button:hover:disabled {
-    color: #ccc;
-    cursor: not-allowed;
-}
-
-.Label {
-    padding: 10px;
-    font-weight: bold;
-    width: 80px;
-}
-
-.BuildControl .Less {  
-    
-    color: white;
-}
-
-.BuildControl .More {
-    
-    color: white;
-}
-
-.BuildControl .Less:hover, .BuildControl .Less:active {  
-    
-    color: white;
-}
-
-.BuildControl .More:hover,.BuildControl .More:active {
-    
-    color: white;
 }

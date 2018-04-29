@@ -5,6 +5,7 @@ import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import { Row, Col, Button } from 'reactstrap';
 import classes from './BurgerBuilder.css';
 import PriceSection from '../../components/PriceSection/PriceSection';
+// import OrderSum from '../../components/OrderSum/OrderSum';
 
 const INGREDIENT_PRICES = {
     salad: 0.7,
@@ -28,8 +29,8 @@ class BurgerBuilder extends Component {
         const priceAdditional = INGREDIENT_PRICES[type];
         const oldPrice = this.state.totalPrice;
         const newPrice = oldPrice + priceAdditional;
-        this.setState({totalPrice: newPrice, ingredients: [...this.state.ingredients, newIngredient] })
-        console.log(this.state.ingredients);
+        this.setState({totalPrice: newPrice, 
+                       ingredients: [...this.state.ingredients, newIngredient]});
     }
 
     removeIngredientHandler = (type) => {
@@ -48,7 +49,9 @@ class BurgerBuilder extends Component {
         }
         
         const newPrice = oldPrice - priceDeduction;
-        this.setState({totalPrice: newPrice, ingredients: updatedIngredients })
+
+        this.setState({totalPrice: newPrice,
+                       ingredients: updatedIngredients})
     }
 
     render() {
@@ -75,6 +78,11 @@ class BurgerBuilder extends Component {
                                         <Button>Make order</Button>
                                     </Col>
                                 </Row>
+                                {/*
+                                    <Row>
+                                        <OrderSum ingridients={this.state.ingredients}/>
+                                    </Row>
+                                */}
                         </div>
                     </Col>
                 </Row>

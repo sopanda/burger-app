@@ -1,9 +1,11 @@
 .Burger {
-    height: 250px;
-    overflow: auto;
+    /* height: 250px; */
+    overflow: auto; 
     text-align: center;
     font-weight: bold;
     font-size: 14px;
+    width: 450px;
+    height: 450px;
 }
 
 .List {
@@ -16,7 +18,7 @@
     list-style-type: none;
 }
 
-@media (min-width: 500px) and (min-height: 400px) {
+/* @media (min-width: 500px) and (min-height: 400px) {
     .Burger {
         width: 350px;
         height: 300px;
@@ -35,6 +37,6 @@
         width: 700px;
         height: 600px;
     }
-}
+} */
 
 

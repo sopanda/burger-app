@@ -82,27 +82,27 @@
   
 
 .Meat {
-    width: 80%;
+    width: 82%;
     height: 29px;
-    background: linear-gradient(#7f3608, #702e05);
+    background: linear-gradient(#2f190a, #653517);
     margin: 2% auto;
-    border-radius: 15px;
+    border-radius: 12px;
 }
 
 .Cheese {
     width: 90%;
-    height: 24px;
+    height: 25px;
     margin: 2% auto;
-    background: linear-gradient(#f4d004, #d6bb22);
-    border-radius: 20px;
+    background: linear-gradient(#ffe137, #e4cb3e);
+    border-radius: 21px;
 }
 
 .Salad {
     width: 85%;
     height: 22px;
     margin: 2% auto;
-    background: linear-gradient(#228c1d, #91ce50);
-    border-radius: 20px;
+    background: linear-gradient(#2eb128, #9dda5b);
+    border-radius: 15px;
 }
 
 .Bacon {

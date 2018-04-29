@@ -1,20 +1,15 @@
 import React from 'react';
 import classes from './BuildControl.css';
-import { Button } from 'reactstrap';
 
 const buildControl = (props) => (
     <div className={classes.BuildControl}>
-        <Button
-            color="primary" 
-            className={classes.More}
+        <a  className={classes.More}
             onClick={props.added}
-        >More</Button>
+        ><i className="fas fa-plus"></i></a>
         <div className={classes.Label}>{props.label}</div>
-        <Button 
-            color="danger"
-            className={classes.Less}
+        <a  className={classes.Less}
             onClick={props.removed}
-        >Less</Button>
+        ><i className="fas fa-minus"></i></a>
     </div>
 );
 

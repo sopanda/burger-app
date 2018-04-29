@@ -14,7 +14,7 @@ class Burger extends Component  {
 
     componentWillReceiveProps(nextProps){
         if (nextProps.ingredients !== this.state.items) {
-            this.setState({ items: nextProps.ingredients });
+            this.setState({ items: nextProps.ingredients});
           }
     }
 
