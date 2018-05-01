@@ -5,7 +5,7 @@ import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import { Row, Col, Button } from 'reactstrap';
 import classes from './BurgerBuilder.css';
 import PriceSection from '../../components/PriceSection/PriceSection';
-// import OrderSum from '../../components/OrderSum/OrderSum';
+import OrderModal from '../../components/UI/Modal/OrderModal';
 
 const INGREDIENT_PRICES = {
     salad: 0.7,
@@ -77,14 +77,14 @@ class BurgerBuilder extends Component {
                                         <PriceSection price={this.state.totalPrice}/>
                                     </Col>
                                     <Col md="6" sm="6">
-                                        <Button>Make order</Button>
+                                        {
+                                            (this.state.ingredients.length !== 0) ? <OrderModal 
+                                                    buttonLabel="Make order" 
+                                                    ingridients={this.state.ingredients}
+                                                    price={this.state.totalPrice}/> : null
+                                        }
                                     </Col>
                                 </Row>
-                                {/*
-                                    <Row>
-                                        <OrderSum ingridients={this.state.ingredients}/>
-                                    </Row>
-                                */}
                         </div>
                     </Col>
                 </Row>

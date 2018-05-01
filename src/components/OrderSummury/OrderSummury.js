@@ -1,9 +1,10 @@
 import React from 'react';
 import Auxiliary from '../../hoc/Auxiliary';
+import PriceSection from '../PriceSection/PriceSection';
 
-const orderSum = (props) => {
+const orderSummury = (props) => {
     /* seaching for duplicates and creating object with founded values and their count */
-    const order = props.ingridients.reduce(function(prev, cur) {
+    const order = props.orderIngridients.reduce(function(prev, cur) {
         prev[cur] = (prev[cur] || 0) + 1;
         return prev;
       }, {});
@@ -15,12 +16,12 @@ const orderSum = (props) => {
 
     return (
         <Auxiliary>
-            <h4>Your order:</h4>
              <ul>
                 {orderSummury}
              </ul>
+             <PriceSection price={props.total}/>
         </Auxiliary>
     );
 };
 
-export default orderSum;
+export default orderSummury;
