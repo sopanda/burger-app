@@ -89,6 +89,46 @@
     border-radius: 12px;
 }
 
+.Egg {
+    /* background-color: #fff;
+    border-radius: 46%;
+    border: 2px solid #e8d671;
+    height: 26px;
+    width: 82%;
+    margin: 2% auto; */
+    background-color: #fff;
+    border-radius: 46%;
+    border: 2px solid #e8d671;
+    height: 21px;
+    width: 69%;
+    margin: 2% auto;
+}
+
+.Yellow {
+    /* height: 16px;
+    border-radius: 41%;
+    background-color: yellow;
+    width: 150px;
+    margin: auto;
+    position: relative;
+    bottom: 7px; */
+    height: 16px;
+    border-radius: 41%;
+    background-color: yellow;
+    width: 34%;
+    margin: auto;
+    position: relative;
+    bottom: 7px;
+}
+
+.Tomato {
+    background-color: #FF6347;
+    border-radius: 41%;
+    height: 25px;
+    width: 68%;
+    margin: 2% auto;
+}
+
 .Cheese {
     width: 90%;
     height: 25px;
