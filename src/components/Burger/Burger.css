@@ -1,11 +1,11 @@
 .Burger {
-    /* height: 250px; */
+    margin: auto;
     overflow: auto; 
     text-align: center;
     font-weight: bold;
     font-size: 14px;
     width: 450px;
-    height: 450px;
+    height: 553px;
 }
 
 .List {

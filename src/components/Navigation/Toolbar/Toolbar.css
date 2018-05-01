@@ -1,0 +1,58 @@
+.Toolbar {
+    height: 60px;
+    padding: 0 20px;
+}
+
+.List {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.List * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.List li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0.5em 1.2em;
+  padding: 0;
+}
+.List a {
+  padding: 0 0.6em;
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  text-decoration: none;
+}
+.List a:before,
+.List a:after {
+  width: 3px;
+  height: 0;
+  position: absolute;
+  content: '';
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  background-color: #1abc9c;
+}
+.List a:before {
+  top: 0;
+  right: 0;
+}
+.List a:after {
+  bottom: 0;
+  left: 0;
+}
+.List a:hover,
+.List .active a {
+  color: #ffffff;
+}
+.List a:hover:before,
+.List .active a:before,
+.List a:hover:after,
+.List .active a:after {
+  height: 100%;
+}
+
