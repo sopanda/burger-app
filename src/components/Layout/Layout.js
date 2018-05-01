@@ -6,8 +6,8 @@ import Toolbar from '../Navigation/Toolbar/Toolbar';
 
 const layout = ( props ) => (
     <Auxiliary>
+        <Toolbar/>
         <Container fluid={true}>
-            <Toolbar/>
             <main className= {classes.Content} >
                 {props.children}
             </main>

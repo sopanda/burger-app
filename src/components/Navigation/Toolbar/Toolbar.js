@@ -20,19 +20,19 @@ class Toolbar extends Component {
     render() {
         return(
         <div className={classes.Toolbar}>
-            <Navbar light expand="md">
-            <NavbarBrand href="/">Burgerion</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
+            <Navbar dark expand="md" className={classes.Navbar}>
+            <NavbarBrand href="/" className={classes.Brand}>Burgerion</NavbarBrand>
+            <NavbarToggler className={classes.IconToggle} onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className={classes.List + " ml-auto"} navbar>
                         <NavItem>
-                            <NavLink href="#">Home</NavLink>
+                            <NavLink href="#" className={classes.Link}>Home</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="#">About</NavLink>
+                            <NavLink href="#" className={classes.Link}>About</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="#">Contact us</NavLink>
+                            <NavLink href="#" className={classes.Link}>Contact us</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
