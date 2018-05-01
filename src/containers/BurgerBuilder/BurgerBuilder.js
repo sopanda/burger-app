@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Auxiliary from '../../hoc/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
-import { Row, Col, Button } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import classes from './BurgerBuilder.css';
 import PriceSection from '../../components/PriceSection/PriceSection';
 import OrderModal from '../../components/UI/Modal/OrderModal';
@@ -16,13 +16,23 @@ const INGREDIENT_PRICES = {
     tomato: 0.4
 };
 
+const DRINK_PRICES = {
+    pepsi: 4,
+    coca_cola: 4,
+    green_tea: 5,
+    ice_tea: 4,
+    coffee: 5,
+    tomato_juice: 4
+};
+
 class BurgerBuilder extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             ingredients: [],
-            totalPrice: 5
+            totalPrice: 5,
+            drinks: []
         };
       }
 

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import classes from './Toolbar.css';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-// import Logo from '../../Logo/Logo';
 
 class Toolbar extends Component {
     constructor(props) {
@@ -21,7 +20,9 @@ class Toolbar extends Component {
         return(
         <div className={classes.Toolbar}>
             <Navbar dark expand="md" className={classes.Navbar + " container"}>
-                <NavbarBrand href="/" className={classes.Brand}>Burgerion</NavbarBrand>
+                <NavbarBrand href="/" className={classes.Brand}>
+                    Burgerion
+                </NavbarBrand>
                 <NavbarToggler className={classes.IconToggle} onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className={classes.List + " ml-auto"} navbar>
