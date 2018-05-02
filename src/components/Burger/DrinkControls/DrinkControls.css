@@ -1,0 +1,7 @@
+.DrinkControls {
+    display: flex;
+    flex-flow: column;
+    padding: 10px 0;
+    max-width: 300px;
+    margin: auto;
+}

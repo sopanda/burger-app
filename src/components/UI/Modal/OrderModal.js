@@ -25,7 +25,9 @@ class OrderModal extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Please, check your order</ModalHeader>
           <ModalBody>
-              <OrderSummury orderIngridients={this.props.ingridients} total={this.props.price}/>
+              <OrderSummury orderIngridients={this.props.ingridients} 
+                            total={this.props.price}
+                            orderDrinks={this.props.drinks}/>
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.toggle}>Pay</Button>{' '}

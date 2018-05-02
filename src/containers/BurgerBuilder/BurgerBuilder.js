@@ -6,6 +6,7 @@ import { Row, Col } from 'reactstrap';
 import classes from './BurgerBuilder.css';
 import PriceSection from '../../components/PriceSection/PriceSection';
 import OrderModal from '../../components/UI/Modal/OrderModal';
+import DrinkControls from '../../components/Burger/DrinkControls/DrinkControls';
 
 const INGREDIENT_PRICES = {
     salad: 0.7,
@@ -63,7 +64,36 @@ class BurgerBuilder extends Component {
         const newPrice = oldPrice - priceDeduction;
 
         this.setState({totalPrice: newPrice,
-                       ingredients: updatedIngredients})
+                       ingredients: updatedIngredients});
+    }
+
+    addDrinkHandler = (type) => {
+        const newDrink = type;
+        const priceAdditional = DRINK_PRICES[type];
+        const oldPrice = this.state.totalPrice;
+        const newPrice = oldPrice + priceAdditional;
+        this.setState({totalPrice: newPrice, 
+                       drinks: [...this.state.drinks, newDrink]});
+    }
+
+    removeDrinkHandler = (type) => { 
+        const updatedDrinks = [...this.state.drinks];
+
+        if(updatedDrinks.indexOf(type) !== -1) {
+            updatedDrinks.splice(updatedDrinks.lastIndexOf(type), 1);
+        } else {
+            return false;
+        }
+        
+        const priceDeduction = DRINK_PRICES[type];
+        const oldPrice = this.state.totalPrice;
+        if(oldPrice <= 5) {
+            return;
+        }
+        
+        const newPrice = oldPrice - priceDeduction;
+        this.setState({totalPrice: newPrice,
+                       drinks: updatedDrinks});
     }
 
     render() {
@@ -81,16 +111,21 @@ class BurgerBuilder extends Component {
                                     ingredientRemoved= {this.removeIngredientHandler}
                                 />
                                 <h2>Drinks</h2>
-                                <p>Here will be list of drinks</p>
+                                <DrinkControls 
+                                    drinkAdded= {this.addDrinkHandler}
+                                    drinkRemoved= {this.removeDrinkHandler}
+                                    drinks={this.state.drinks}
+                                />
                                 <Row>
                                     <Col md="6" sm="6">
                                         <PriceSection price={this.state.totalPrice}/>
                                     </Col>
                                     <Col md="6" sm="6">
                                         {
-                                            (this.state.ingredients.length !== 0) ? <OrderModal 
+                                            (this.state.ingredients.length !== 0 || this.state.drinks.length !== 0) ? <OrderModal 
                                                     buttonLabel="Make order" 
                                                     ingridients={this.state.ingredients}
+                                                    drinks={this.state.drinks}
                                                     price={this.state.totalPrice}/> : null
                                         }
                                     </Col>
