@@ -8,3 +8,8 @@
 .Less, .More {
     cursor: pointer;
 }
+
+.Label {
+    min-width: 100px;
+    text-align: center;
+}

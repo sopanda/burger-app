@@ -12,7 +12,7 @@ const controls = [
 ];
 
 const drinkControls = (props) => (
-    <div className={classes.DrinkControls}> 
+    <div className={classes.DrinkControls + " row"}> 
         { 
             controls.map(ctrl => (
                 <DrinkControl 

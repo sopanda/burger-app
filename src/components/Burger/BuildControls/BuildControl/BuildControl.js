@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './BuildControl.css';
 
 const buildControl = (props) => (
-    <div className={classes.BuildControl}>
+    <div className={classes.BuildControl + " col"}>
         <a  className={classes.More}
             onClick={props.added}
         ><i className="fas fa-plus"></i></a>
