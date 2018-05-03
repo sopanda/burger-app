@@ -1,8 +1,8 @@
 import React from 'react';
-import Auxiliary from '../../hoc/Auxiliary';
+import Auxiliary from '../Auxiliary/Auxiliary';
 import classes from './Layout.css';
 import {Container} from 'reactstrap';
-import Toolbar from '../Navigation/Toolbar/Toolbar';
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 
 const layout = ( props ) => (
     <Auxiliary>

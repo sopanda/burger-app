@@ -1,32 +1,34 @@
-import React from 'react';
-import Auxiliary from '../../hoc/Auxiliary';
+import React, {Component} from 'react';
+import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import PriceSection from '../PriceSection/PriceSection';
 
-const orderSummury = (props) => {
-    // let drinkOrders = [...props.orderDrinks].toString().split("_").join(" ");;
-    // let arrDrinks = drinkOrders.split(',');;
-    let totalOrder = [...props.orderIngridients, ...props.orderDrinks];
+class OrderSummury extends Component {
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.orderIngridients !== this.props.orderIngridients || 
+               nextProps.orderDrinks !== this.props.orderDrinks;
+    }
 
-    /* seaching for duplicates and creating object with founded values and their count */
-    const order = totalOrder.reduce(function(prev, cur) {
-        prev[cur] = (prev[cur] || 0) + 1;
-        return prev;
-      }, {});
+    render() {
+        let totalOrder = [...this.props.orderIngridients, ...this.props.orderDrinks];
 
-    console.log(order);
-
-    const orderSummury = Object.keys(order).map((key, i) => 
-        <li key={i}>{key} : x{order[key]}</li>
-    )
-
+        /* seaching for duplicates and creating object with founded values and their count */
+        const order = totalOrder.reduce(function(prev, cur) {
+            prev[cur] = (prev[cur] || 0) + 1;
+            return prev;
+          }, {});
+    
+        const orderSummury = Object.keys(order).map((key, i) => 
+            <li key={i}>{key} : x{order[key]}</li>
+        )
     return (
         <Auxiliary>
              <ul>
                 {orderSummury}
              </ul>
-             <PriceSection price={props.total}/>
+             <PriceSection price={this.props.total}/>
         </Auxiliary>
     );
 };
+}
 
-export default orderSummury;
+export default OrderSummury;
