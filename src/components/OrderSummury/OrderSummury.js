@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import PriceSection from '../PriceSection/PriceSection';
+import {Button} from 'reactstrap';
 
 class OrderSummury extends Component {
     shouldComponentUpdate(nextProps, nextState) {

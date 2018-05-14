@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import classes from './Toolbar.css';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import {NavLink as navLink } from 'react-router-dom';
 
 class Toolbar extends Component {
     constructor(props) {
@@ -20,20 +21,20 @@ class Toolbar extends Component {
         return(
         <div className={classes.Toolbar}>
             <Navbar dark expand="md" className={classes.Navbar + " container"}>
-                <NavbarBrand href="/" className={classes.Brand}>
+                <NavbarBrand tag={navLink} exact to="/" className={classes.Brand}>
                     Burgerion
                 </NavbarBrand>
                 <NavbarToggler className={classes.IconToggle} onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className={classes.List + " ml-auto"} navbar>
                             <NavItem>
-                                <NavLink href="#" className={classes.Link}>Home</NavLink>
+                                <NavLink tag={navLink} to="/" exact className={classes.Link}>Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#" className={classes.Link}>About</NavLink>
+                                <NavLink tag={navLink} to="/about" exact className={classes.Link}>About</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#" className={classes.Link}>Contact us</NavLink>
+                                <NavLink tag={navLink} to="/contact" exact className={classes.Link}>Contact us</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>

@@ -4,12 +4,13 @@
 }
 
 .Toolbar {
-    padding: 0 20px;
-    background-color: #333;
+  padding: 0 20px;
+  background-color: #333;
 }
 
-.Link, .Brand  {
-  color: #fff !important;
+.Link,
+.Brand {
+  color: #fff ;
 }
 
 .IconToggle {
@@ -17,13 +18,13 @@
 }
 
 .Brand {
-      font-size: 25px;
-      letter-spacing: 3px;
-      font-family: Stingray;
+  font-size: 25px;
+  letter-spacing: 3px;
+  font-family: Stingray;
 }
 
-.Brand:hover {
-  color: #1abc9c !important;
+.Toolbar .Brand:hover {
+  color: #1abc9c;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
@@ -39,26 +40,30 @@
   font-weight: 500;
   letter-spacing: 1px;
 }
+
 .List * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
+
 .List li {
   display: inline-block;
   list-style: outside none none;
   margin: 0.5em 1.2em;
   padding: 0;
 }
-.List a {
+
+.List .Link {
   padding: 0 0.6em;
   color: rgba(255, 255, 255, 0.5);
   position: relative;
   text-decoration: none;
 }
-.List a:before,
-.List a:after {
+
+.List .Link:before,
+.List .Link:after {
   width: 3px;
   height: 0;
   position: absolute;
@@ -67,22 +72,23 @@
   transition: all 0.35s ease;
   background-color: #1abc9c;
 }
-.List a:before {
+
+.List .Link:before {
   top: 0;
   right: 0;
 }
-.List a:after {
+
+.List .Link:after {
   bottom: 0;
   left: 0;
 }
-.List a:hover,
-.List .active a {
-  color: #ffffff;
-}
-.List a:hover:before,
-.List .active a:before,
-.List a:hover:after,
-.List .active a:after {
+
+.Toolbar .List .Link:hover:before,
+.Toolbar .List .Link:hover:after {
   height: 100%;
+}
+
+.Toolbar .List .Link:hover {
+  color: #fff;
 }
 

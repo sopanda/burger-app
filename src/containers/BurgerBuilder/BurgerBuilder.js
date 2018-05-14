@@ -96,6 +96,14 @@ class BurgerBuilder extends Component {
                        drinks: updatedDrinks});
     }
 
+    purchaseCancelHandler = () => {
+
+    }
+
+    purchaseContinueHandler = () => {
+        this.props.history.push("/checkout");
+    }
+
     render() {
         return (
             <Auxiliary>
@@ -126,6 +134,8 @@ class BurgerBuilder extends Component {
                                                     buttonLabel="Make order" 
                                                     ingridients={this.state.ingredients}
                                                     drinks={this.state.drinks}
+                                                    purchaseCancelled={this.purchaseCancelHandler}
+                                                    purchaseContinued={this.purchaseContinueHandler}
                                                     price={this.state.totalPrice}/> : null
                                         }
                                     </Col>

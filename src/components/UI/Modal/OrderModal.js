@@ -30,8 +30,9 @@ class OrderModal extends Component {
                             orderDrinks={this.props.drinks}/>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Pay</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="primary" onClick={this.props.purchaseContinued}>Pay</Button>
+            {' '}
+            <Button color="secondary" onClick={this.props.purchaseCancelled}>Cancel</Button>
           </ModalFooter>
         </Modal>
       </div>
