@@ -96,12 +96,15 @@ class BurgerBuilder extends Component {
                        drinks: updatedDrinks});
     }
 
-    purchaseCancelHandler = () => {
-
-    }
-
     purchaseContinueHandler = () => {
-        this.props.history.push("/checkout");
+        const qParamsIngr = [...this.state.ingredients];
+        const qParamsDrinks = [...this.state.drinks];
+        const qParamsStringIng = qParamsIngr.join("&");
+        const qParamsStringDrinks = qParamsDrinks.join("&");
+        this.props.history.push({
+            pathname: "/checkout",
+            search: "?ingredients=" + qParamsStringIng +"&&drinks=" + qParamsStringDrinks
+        });
     }
 
     render() {
@@ -134,7 +137,6 @@ class BurgerBuilder extends Component {
                                                     buttonLabel="Make order" 
                                                     ingridients={this.state.ingredients}
                                                     drinks={this.state.drinks}
-                                                    purchaseCancelled={this.purchaseCancelHandler}
                                                     purchaseContinued={this.purchaseContinueHandler}
                                                     price={this.state.totalPrice}/> : null
                                         }

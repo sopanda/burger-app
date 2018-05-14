@@ -3,6 +3,7 @@ import Burger from '../../Burger/Burger';
 import {Button} from 'reactstrap';
 import classes from './CheckoutSummury.css';
 
+
 const checkoutSummury = (props) => {
     return (
         <div className={classes.CheckoutSummury}>
@@ -10,8 +11,8 @@ const checkoutSummury = (props) => {
             
             <Burger ingredients={props.ingredients}/>
             
-            <Button color="success">Continue</Button>
-            <Button color="danger">Cancel</Button>
+            <Button color="success" onClick={props.onCheckoutContinued}>Continue</Button>
+            <Button color="danger" onClick={props.onCheckoutCancelled}>Cancel</Button>
         </div>
     );
 }

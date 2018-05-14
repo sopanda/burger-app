@@ -32,7 +32,7 @@ class OrderModal extends Component {
           <ModalFooter>
             <Button color="primary" onClick={this.props.purchaseContinued}>Pay</Button>
             {' '}
-            <Button color="secondary" onClick={this.props.purchaseCancelled}>Cancel</Button>
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
       </div>
