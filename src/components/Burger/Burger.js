@@ -16,15 +16,20 @@ class Burger extends Component  {
     componentWillReceiveProps(nextProps){
         if (nextProps.ingredients !== this.state.items) {
             this.setState({ items: nextProps.ingredients});
-          }
+        }
     }
 
     onSortEnd = ({oldIndex, newIndex}) => {
         this.setState({
-            items: arrayMove(this.state.items, oldIndex, newIndex)
+            items: arrayMove(this.state.items, oldIndex, newIndex),
         });
+        this.dataForParent();
     }
 
+    dataForParent = () => {
+        this.props.sessionItems(this.state.items);
+    }
+    
     render() {
         return (
                 <div className={classes.Burger}>

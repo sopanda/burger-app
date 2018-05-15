@@ -33,7 +33,9 @@ class BurgerBuilder extends Component {
         this.state = {
             ingredients: [],
             totalPrice: 5,
-            drinks: []
+            drinks: [],
+            // actualDrinks: null,
+            actualIngredients: null
         };
       }
 
@@ -97,14 +99,15 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
-        const qParamsIngr = [...this.state.ingredients];
-        const qParamsDrinks = [...this.state.drinks];
-        const qParamsStringIng = qParamsIngr.join("&");
-        const qParamsStringDrinks = qParamsDrinks.join("&");
-        this.props.history.push({
-            pathname: "/checkout",
-            search: "?ingredients=" + qParamsStringIng +"&&drinks=" + qParamsStringDrinks
-        });
+        this.props.history.push('/checkout');
+        if(this.data) {
+            sessionStorage.setItem("actualIngredients", JSON.stringify(this.state.ingredients));
+        }
+    }
+
+    selectedInSessionOrderItemsHandler = (dataFromChild) => {
+        const data = dataFromChild;
+        sessionStorage.setItem("actualIngredients", JSON.stringify(data));
     }
 
     render() {
@@ -112,7 +115,7 @@ class BurgerBuilder extends Component {
             <Auxiliary>
                 <Row className={classes.Wrapper}>
                     <Col md="6" sm="6">
-                        <Burger ingredients={this.state.ingredients}/>
+                        <Burger ingredients={this.state.ingredients} sessionItems={this.selectedInSessionOrderItemsHandler}/>
                     </Col>
                     <Col md="6" sm="6">
                         <div className={classes.BurgerBuilder}>

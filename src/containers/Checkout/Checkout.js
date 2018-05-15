@@ -19,12 +19,9 @@ class Checkout extends Component {
     }
     
     componentDidMount() {
-        const queryIngredients = this.props.location.search
-            .split("&&")[0]
-            .replace(/&/g, ",")
-            .substr(13)
-            .split(",");
-        this.setState({ ingredients: queryIngredients });
+        let receivedOrderIngs = sessionStorage.getItem("actualIngredients");
+        let orderIngs = JSON.parse(receivedOrderIngs);
+        this.setState({ ingredients: orderIngs });
     }
 
     checkoutCancelledHandler = () => {
