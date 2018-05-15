@@ -34,8 +34,7 @@ class BurgerBuilder extends Component {
             ingredients: [],
             totalPrice: 5,
             drinks: [],
-            // actualDrinks: null,
-            actualIngredients: null
+            actualIngredients: []
         };
       }
 
@@ -100,14 +99,16 @@ class BurgerBuilder extends Component {
 
     purchaseContinueHandler = () => {
         this.props.history.push('/checkout');
-        if(this.data) {
+        if (sessionStorage.getItem("actualIngredients") === null) {
             sessionStorage.setItem("actualIngredients", JSON.stringify(this.state.ingredients));
         }
+        sessionStorage.setItem("actualDrinks", JSON.stringify(this.state.drinks));
+        sessionStorage.setItem("totalPrice", JSON.stringify(this.state.totalPrice));
     }
 
-    selectedInSessionOrderItemsHandler = (dataFromChild) => {
-        const data = dataFromChild;
-        sessionStorage.setItem("actualIngredients", JSON.stringify(data));
+    selectedInSessionOrderIngredientsHandler = (dataFromChild) => {
+        const dataIng = dataFromChild;
+        sessionStorage.setItem("actualIngredients", JSON.stringify(dataIng));
     }
 
     render() {
@@ -115,7 +116,7 @@ class BurgerBuilder extends Component {
             <Auxiliary>
                 <Row className={classes.Wrapper}>
                     <Col md="6" sm="6">
-                        <Burger ingredients={this.state.ingredients} sessionItems={this.selectedInSessionOrderItemsHandler}/>
+                        <Burger ingredients={this.state.ingredients} sessionItems={this.selectedInSessionOrderIngredientsHandler}/>
                     </Col>
                     <Col md="6" sm="6">
                         <div className={classes.BurgerBuilder}>
@@ -136,7 +137,7 @@ class BurgerBuilder extends Component {
                                     </Col>
                                     <Col md="6" sm="6">
                                         {
-                                            (this.state.ingredients.length !== 0 || this.state.drinks.length !== 0) ? <OrderModal 
+                                        (this.state.ingredients.length !== 0 /*|| this.state.drinks.length !== 0*/) ? <OrderModal 
                                                     buttonLabel="Make order" 
                                                     ingridients={this.state.ingredients}
                                                     drinks={this.state.drinks}

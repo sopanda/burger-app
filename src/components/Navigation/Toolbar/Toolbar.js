@@ -30,12 +30,14 @@ class Toolbar extends Component {
                             <NavItem>
                                 <NavLink tag={navLink} to="/" exact className={classes.Link}>Home</NavLink>
                             </NavItem>
+                            {/*
                             <NavItem>
                                 <NavLink tag={navLink} to="/about" exact className={classes.Link}>About</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink tag={navLink} to="/contact" exact className={classes.Link}>Contact us</NavLink>
                             </NavItem>
+                            */}
                         </Nav>
                     </Collapse>
             </Navbar>

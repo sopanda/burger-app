@@ -5,27 +5,32 @@ class Checkout extends Component {
     
     /* 
     TODO:
-        *take ingredients from Burger in needed order
         *order form component
-        *drinks state from params
+        *geolocation
     */
    
     constructor() {
         super();
         this.state = {
             ingredients: [],
-            drinks: []
+            drinks: [],
+            price: 0
         };
     }
     
     componentDidMount() {
         let receivedOrderIngs = sessionStorage.getItem("actualIngredients");
         let orderIngs = JSON.parse(receivedOrderIngs);
-        this.setState({ ingredients: orderIngs });
+        let receivedOrderDrinks = sessionStorage.getItem("actualDrinks");
+        let orderDrinks = JSON.parse(receivedOrderDrinks);
+        let receivedPrice = sessionStorage.getItem("totalPrice");
+        let orderTotal = JSON.parse(receivedPrice);
+        this.setState({ ingredients: orderIngs, drinks: orderDrinks, price: orderTotal });
     }
 
     checkoutCancelledHandler = () => {
         this.props.history.goBack();
+        sessionStorage.clear(); // ne bag, a ficha
     }
 
     checkoutContinueHandler = () => {
@@ -37,6 +42,8 @@ class Checkout extends Component {
             <div>
                 <CheckoutSummury 
                     ingredients={this.state.ingredients} 
+                    drinks={this.state.drinks}
+                    priceOrder={this.state.price}
                     onCheckoutContinued={this.checkoutContinueHandler}
                     onCheckoutCancelled={this.checkoutCancelledHandler}
                 />

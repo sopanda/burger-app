@@ -3,7 +3,6 @@ import classes from './Burger.css';
 import {arrayMove} from 'react-sortable-hoc';
 import SortableList from '../../hoc/SortableList';
 import BurgerIngredient from '../Burger/BurgerIngredient/BurgerIngredient';
-import Checkout from '../../containers/Checkout/Checkout';
 
 class Burger extends Component  {
     constructor(props) {

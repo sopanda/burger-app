@@ -5,7 +5,7 @@ import classes from '../components/Burger/Burger.css';
 
 const sortableList = SortableContainer(({items}) => {
     let transformedIngredients = items.map((value, index) => (
-            <SortableItem key={`item-${index}`} index={index} i={index} value={value} />
+            <SortableItem key={`item-${index}`} index={index} i={index} value={value}/>
       ));
     
     if (transformedIngredients.length === 0) {
