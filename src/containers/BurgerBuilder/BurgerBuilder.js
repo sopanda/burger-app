@@ -8,15 +8,6 @@ import PriceSection from '../../components/PriceSection/PriceSection';
 import DrinkControls from '../../components/Burger/DrinkControls/DrinkControls';
 import axios from '../../axios-orders';
 
-const DRINK_PRICES = {
-    pepsi: 4,
-    coca_cola: 4,
-    green_tea: 5,
-    ice_tea: 4,
-    coffee: 5,
-    tomato_juice: 4
-};
-
 class BurgerBuilder extends Component {
 
     constructor(props) {
@@ -40,10 +31,7 @@ class BurgerBuilder extends Component {
           let drinksLabels = [];
           for (let i = 0; i < drinksServer.length; i++) {
             let object = drinksServer[i];
-            for (let property in object) {
-                drinksLabels.push(object.name);
-                break;
-            }
+            drinksLabels.push(object.name);
         }
           this.setState({drinksServer : drinksServer, drinksLabels : drinksLabels});
         });
@@ -54,10 +42,7 @@ class BurgerBuilder extends Component {
           let ingsLabels = [];
           for (let i = 0; i < ingredientsServer.length; i++) {
             let object = ingredientsServer[i];
-            for (let property in object) {
-                ingsLabels.push(object.name);
-                break;
-            }
+            ingsLabels.push(object.name);
         }
           this.setState({ ingredientsServer: ingredientsServer, ingsLabels : ingsLabels});
         });
@@ -69,10 +54,8 @@ class BurgerBuilder extends Component {
         let priceAdditional = 0;
         for (let i = 0; i < ingredients.length; i++) {
             let object = ingredients[i];
-            for (let property in object) {
-                if(object.name === type) {
-                    priceAdditional = +object.price;
-                }
+            if(object.name === type) {
+                priceAdditional = +object.price;
             }
         }
         const oldPrice = this.state.totalPrice;
@@ -95,10 +78,8 @@ class BurgerBuilder extends Component {
         let priceDeduction = 0;
         for (let i = 0; i < ingredients.length; i++) {
             let object = ingredients[i];
-            for (let property in object) {
-                if(object.name === type) {
-                    priceDeduction = +object.price;
-                }
+            if(object.name === type) {
+                priceDeduction = +object.price;
             }
         }
 
@@ -119,11 +100,7 @@ class BurgerBuilder extends Component {
         let priceAdditional = 0;
         for (let i = 0; i < drinks.length; i++) {
             let object = drinks[i];
-            for (let property in object) {
-                if(object.name === type) {
-                    priceAdditional = +object.price;
-                }
-            }
+            priceAdditional = +object.price;
         }
         const oldPrice = this.state.totalPrice;
         const newPrice = oldPrice + priceAdditional;
@@ -145,10 +122,8 @@ class BurgerBuilder extends Component {
         let priceDeduction = 0;
         for (let i = 0; i < drinks.length; i++) {
             let object = drinks[i];
-            for (let property in object) {
-                if(object.name === type) {
+            if(object.name === type) {
                     priceDeduction = +object.price;
-                }
             }
         }
 
