@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Burger from '../../Burger/Burger';
-import {Button, Row, Col, Container} from 'reactstrap';
+import {Button, Row, Col} from 'reactstrap';
 import classes from './CheckoutSummury.css';
 import PriceSection from '../../PriceSection/PriceSection';
 
@@ -23,12 +23,13 @@ class CheckoutSummury extends Component {
             <li key={i}>{key} : x{order[key]}</li>
         );
 
+        let disable = "true";
     return (
             <div className={classes.CheckoutSummury}>
                 <Row>
                     <Col  md="6" sm="6">
                         <div className={classes.CheckoutBurger}>
-                            <Burger ingredients={this.props.ingredients}/>
+                            <Burger ingredients={this.props.ingredients} disableSorting={disable}/>
                         </div>
                     </Col>
                     <Col  md="6" sm="6">
