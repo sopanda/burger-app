@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from 'reactstrap';
-import GeoLocation from './GeoLocation/GeoLocation';
+import RestaurantSelect from '../../components/RestaurantSelect/RestaurantSelect';
 
 class Home extends Component {
     state = {};
@@ -18,7 +18,7 @@ class Home extends Component {
                         onClick={this.burgerBuilderPageRoute}>
                         Make order
                 </Button>
-                <GeoLocation />
+                <RestaurantSelect/>
             </div>
          );
     }

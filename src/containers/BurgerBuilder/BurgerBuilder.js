@@ -27,23 +27,15 @@ class BurgerBuilder extends Component {
     componentDidMount() {
         axios.get('/menu/drinks/')
         .then(res => {
-          const drinksServer = res.data;
-          let drinksLabels = [];
-          for (let i = 0; i < drinksServer.length; i++) {
-            let object = drinksServer[i];
-            drinksLabels.push(object.name);
-        }
+          let drinksServer = res.data.map(drink => ({id:drink.id, name: drink.name, price:drink.price}));
+          let drinksLabels = res.data.map(drink => (drink.name));
           this.setState({drinksServer : drinksServer, drinksLabels : drinksLabels});
         });
 
         axios.get('/menu/ingredients/')
         .then(res => {
-          const ingredientsServer = res.data;
-          let ingsLabels = [];
-          for (let i = 0; i < ingredientsServer.length; i++) {
-            let object = ingredientsServer[i];
-            ingsLabels.push(object.name);
-        }
+          let ingredientsServer = res.data.map(ing => ({id:ing.id, name: ing.name, price:ing.price}));
+          let ingsLabels = res.data.map(ing => (ing.name));
           this.setState({ ingredientsServer: ingredientsServer, ingsLabels : ingsLabels});
         });
     }
