@@ -15,7 +15,7 @@ const drinkControl = (props) => {
                 onClick={props.added}
             ><i className="fas fa-plus"></i></a>
             <div className={classes.Label}>
-                {props.label} {(drinkCount !== 0) ? drinkCount : " "}
+                {props.drinkType} {(drinkCount !== 0) ? drinkCount : " "}
             </div>
             <a  className={classes.Less}
                 onClick={props.removed}

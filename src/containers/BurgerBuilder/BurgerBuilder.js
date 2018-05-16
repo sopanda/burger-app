@@ -8,15 +8,6 @@ import PriceSection from '../../components/PriceSection/PriceSection';
 import DrinkControls from '../../components/Burger/DrinkControls/DrinkControls';
 import axios from '../../axios-orders';
 
-const INGREDIENT_PRICES = {
-    salad: 0.7,
-    meat: 1.5,
-    cheese: 0.8,
-    bacon: 0.9,
-    egg: 0.5,
-    tomato: 0.4
-};
-
 const DRINK_PRICES = {
     pepsi: 4,
     coca_cola: 4,
@@ -36,7 +27,9 @@ class BurgerBuilder extends Component {
             drinks: [],
             actualIngredients: [],
             drinksServer: [],
-            ingredientsServer: []
+            ingredientsServer: [],
+            drinksLabels: [],
+            ingsLabels: []
         };
       }
 
@@ -44,14 +37,29 @@ class BurgerBuilder extends Component {
         axios.get('/menu/drinks/')
         .then(res => {
           const drinksServer = res.data;
-          this.setState({drinksServer : drinksServer});
+          let drinksLabels = [];
+          for (let i = 0; i < drinksServer.length; i++) {
+            let object = drinksServer[i];
+            for (let property in object) {
+                drinksLabels.push(object.name);
+                break;
+            }
+        }
+          this.setState({drinksServer : drinksServer, drinksLabels : drinksLabels});
         });
 
         axios.get('/menu/ingredients/')
         .then(res => {
           const ingredientsServer = res.data;
-          console.log(ingredientsServer);
-          this.setState({ingredientsServer : ingredientsServer});
+          let ingsLabels = [];
+          for (let i = 0; i < ingredientsServer.length; i++) {
+            let object = ingredientsServer[i];
+            for (let property in object) {
+                ingsLabels.push(object.name);
+                break;
+            }
+        }
+          this.setState({ ingredientsServer: ingredientsServer, ingsLabels : ingsLabels});
         });
     }
 
@@ -132,7 +140,18 @@ class BurgerBuilder extends Component {
             return false;
         }
         
-        const priceDeduction = DRINK_PRICES[type];
+        const drinks = this.state.drinksServer;
+        
+        let priceDeduction = 0;
+        for (let i = 0; i < drinks.length; i++) {
+            let object = drinks[i];
+            for (let property in object) {
+                if(object.name === type) {
+                    priceDeduction = +object.price;
+                }
+            }
+        }
+
         const oldPrice = this.state.totalPrice;
         if(oldPrice <= 5) {
             return;
@@ -170,12 +189,14 @@ class BurgerBuilder extends Component {
                                 <BuildControls 
                                     ingredientAdded= {this.addIngredientHandler }
                                     ingredientRemoved= {this.removeIngredientHandler}
+                                    ingLabels={this.state.ingsLabels}
                                 />
                                 <h2>Drinks</h2>
                                 <DrinkControls 
                                     drinkAdded= {this.addDrinkHandler}
                                     drinkRemoved= {this.removeDrinkHandler}
                                     drinks={this.state.drinks}
+                                    drinkLabels={this.state.drinksLabels}
                                 />
                                 <Row>
                                     <Col md="6" sm="6">
