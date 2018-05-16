@@ -39,7 +39,6 @@ class Checkout extends Component {
 
     render() {
         return(
-            <div>
                 <CheckoutSummury 
                     ingredients={this.state.ingredients} 
                     drinks={this.state.drinks}
@@ -47,7 +46,6 @@ class Checkout extends Component {
                     onCheckoutContinued={this.checkoutContinueHandler}
                     onCheckoutCancelled={this.checkoutCancelledHandler}
                 />
-            </div>
         );
     }
 }

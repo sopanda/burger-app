@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Button } from 'reactstrap';
 import classes from './BurgerBuilder.css';
 import PriceSection from '../../components/PriceSection/PriceSection';
-import OrderModal from '../../components/UI/Modal/OrderModal';
 import DrinkControls from '../../components/Burger/DrinkControls/DrinkControls';
 
 const INGREDIENT_PRICES = {
@@ -137,12 +136,11 @@ class BurgerBuilder extends Component {
                                     </Col>
                                     <Col md="6" sm="6">
                                         {
-                                        (this.state.ingredients.length !== 0 /*|| this.state.drinks.length !== 0*/) ? <OrderModal 
-                                                    buttonLabel="Make order" 
-                                                    ingridients={this.state.ingredients}
-                                                    drinks={this.state.drinks}
-                                                    purchaseContinued={this.purchaseContinueHandler}
-                                                    price={this.state.totalPrice}/> : null
+                                        (this.state.ingredients.length !== 0) ? <Button 
+                                        color="primary"
+                                        onClick={this.purchaseContinueHandler}>
+                                         Make order
+                                        </Button> : null
                                         }
                                     </Col>
                                 </Row>
