@@ -3,12 +3,12 @@ import DrinkControl from './DrinkControl/DrinkControl';
 import classes from './DrinkControls.css';
 
 const controls = [
-    { label: 'Coca-cola', type: 'coca_cola'},
-    { label: 'Pepsi', type: 'pepsi'},
-    { label: 'Green tea', type: 'green_tea'},
-    { label: 'Ice tea', type: 'ice_tea'},
-    { label: 'Coffee', type: 'coffee'},
-    { label: 'Tomato juice', type: 'tomato_juice'}
+    { label: 'Coca-cola', type: 'Coca-cola'},
+    { label: 'Pepsi', type: 'Pepsi'},
+    { label: 'Green tea', type: 'Green tea'},
+    { label: 'Ice tea', type: 'Ice tea'},
+    { label: 'Coffee', type: 'Coffee'},
+    { label: 'Tomato juice', type: 'Tomato juice'}
 ];
 
 const drinkControls = (props) => (

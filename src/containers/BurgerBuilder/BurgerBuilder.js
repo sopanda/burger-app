@@ -6,6 +6,7 @@ import { Row, Col, Button } from 'reactstrap';
 import classes from './BurgerBuilder.css';
 import PriceSection from '../../components/PriceSection/PriceSection';
 import DrinkControls from '../../components/Burger/DrinkControls/DrinkControls';
+import axios from '../../axios-orders';
 
 const INGREDIENT_PRICES = {
     salad: 0.7,
@@ -33,13 +34,39 @@ class BurgerBuilder extends Component {
             ingredients: [],
             totalPrice: 5,
             drinks: [],
-            actualIngredients: []
+            actualIngredients: [],
+            drinksServer: [],
+            ingredientsServer: []
         };
       }
 
+    componentDidMount() {
+        axios.get('/menu/drinks/')
+        .then(res => {
+          const drinksServer = res.data;
+          this.setState({drinksServer : drinksServer});
+        });
+
+        axios.get('/menu/ingredients/')
+        .then(res => {
+          const ingredientsServer = res.data;
+          console.log(ingredientsServer);
+          this.setState({ingredientsServer : ingredientsServer});
+        });
+    }
+
     addIngredientHandler = (type) => {
         const newIngredient = type;
-        const priceAdditional = INGREDIENT_PRICES[type];
+        const ingredients = this.state.ingredientsServer;
+        let priceAdditional = 0;
+        for (let i = 0; i < ingredients.length; i++) {
+            let object = ingredients[i];
+            for (let property in object) {
+                if(object.name === type) {
+                    priceAdditional = +object.price;
+                }
+            }
+        }
         const oldPrice = this.state.totalPrice;
         const newPrice = oldPrice + priceAdditional;
         this.setState({totalPrice: newPrice, 
@@ -55,7 +82,18 @@ class BurgerBuilder extends Component {
             return false;
         }
         
-        const priceDeduction = INGREDIENT_PRICES[type];
+        const ingredients = this.state.ingredientsServer;
+        
+        let priceDeduction = 0;
+        for (let i = 0; i < ingredients.length; i++) {
+            let object = ingredients[i];
+            for (let property in object) {
+                if(object.name === type) {
+                    priceDeduction = +object.price;
+                }
+            }
+        }
+
         const oldPrice = this.state.totalPrice;
         if(oldPrice <= 5) {
             return;
@@ -69,7 +107,16 @@ class BurgerBuilder extends Component {
 
     addDrinkHandler = (type) => {
         const newDrink = type;
-        const priceAdditional = DRINK_PRICES[type];
+        const drinks = this.state.drinksServer;
+        let priceAdditional = 0;
+        for (let i = 0; i < drinks.length; i++) {
+            let object = drinks[i];
+            for (let property in object) {
+                if(object.name === type) {
+                    priceAdditional = +object.price;
+                }
+            }
+        }
         const oldPrice = this.state.totalPrice;
         const newPrice = oldPrice + priceAdditional;
         this.setState({totalPrice: newPrice, 
