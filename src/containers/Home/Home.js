@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {Button} from 'reactstrap';
+import GeoLocation from './GeoLocation/GeoLocation';
 
 class Home extends Component {
-    state = {}
+    state = {};
 
     burgerBuilderPageRoute = () => {
         this.props.history.push('/burger-builder');
@@ -17,6 +18,7 @@ class Home extends Component {
                         onClick={this.burgerBuilderPageRoute}>
                         Make order
                 </Button>
+                <GeoLocation />
             </div>
          );
     }
