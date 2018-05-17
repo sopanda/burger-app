@@ -7,17 +7,18 @@ class RestaurantSelect extends Component {
   state = {
     restaurants: null,
     restaurant: '',
-    userLocation: {}
   }
 
   coordsHandler = (latitude, longitude) => {
-    this.setState({userLocation: {latitude: latitude, longitude: longitude}});
     axios.get("/restaurants/" + latitude + "/" + longitude + "/")
         .then(response => {
             console.log(response);
+            const {id, name} = response.data;
+            this.setState({ restaurant:  {value: id, label: name}});
     })
       .catch(error => {
-            console.log(error);
+          this.setState({ restaurant: null });
+            // console.log(error);
       });
   }
 
@@ -34,7 +35,7 @@ class RestaurantSelect extends Component {
 }
 
   render() {
-  	const { restaurant } = this.state;
+    const { restaurant } = this.state;
     return (
       <div>
         <Select
@@ -42,6 +43,7 @@ class RestaurantSelect extends Component {
             value={restaurant}
             onChange={this.handleChange}
             options={this.state.restaurants}
+            placeholder= "Choose your burger store"
         />
         <GeoLocation restaurantCoords={this.coordsHandler}/>
       </div>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Button} from 'reactstrap';
 import RestaurantSelect from '../../components/RestaurantSelect/RestaurantSelect';
+import classes from './Home.css';
+import {Container} from 'reactstrap';
 
 class Home extends Component {
     state = {};
@@ -10,15 +12,21 @@ class Home extends Component {
     };
 
     render() { 
-        return ( 
-            <div>
-                <h2>hello from home</h2>
-                <Button 
-                        color="primary"
-                        onClick={this.burgerBuilderPageRoute}>
-                        Make order
-                </Button>
-                <RestaurantSelect/>
+        return (
+            <div className={classes.Home}>
+                    <section className={classes.Hero}>
+                        <Container>
+                            <div className={classes.HeroContent}>
+                                <h1>We do it like you’d do it</h1>
+                                <RestaurantSelect/>                                
+                                <Button 
+                                        color="primary"
+                                        onClick={this.burgerBuilderPageRoute}>
+                                        Make order
+                                </Button>
+                            </div>
+                        </Container>
+                    </section>
             </div>
          );
     }
