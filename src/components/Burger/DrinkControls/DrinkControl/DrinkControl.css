@@ -13,3 +13,10 @@
     min-width: 105px;
     text-align: center;
 }
+
+.Count {
+    color: #ff9c83;
+    font-size: 15px;
+    font-weight: 900;
+    background-color: none;
+}

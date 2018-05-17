@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './DrinkControl.css';
+import {Badge} from 'reactstrap';
 
 const drinkControl = (props) => {
     const drinks = props.drinks.reduce(function(prev, cur) {
@@ -15,7 +16,7 @@ const drinkControl = (props) => {
                 onClick={props.added}
             ><i className="fas fa-plus"></i></a>
             <div className={classes.Label}>
-                {props.drinkType} {(drinkCount !== 0) ? drinkCount : " "}
+                {props.drinkType} <Badge color="info">{(drinkCount !== 0) ? (drinkCount) : " "}</Badge>
             </div>
             <a  className={classes.Less}
                 onClick={props.removed}

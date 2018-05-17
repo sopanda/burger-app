@@ -89,7 +89,6 @@ class BurgerBuilder extends Component {
     addDrinkHandler = (type) => {
         const newDrink = type;
         const drinks = this.state.drinksServer;
-        console.log(type);
         let priceAdditional = 0;
         for (let i = 0; i < drinks.length; i++) {
             let object = drinks[i];
@@ -97,11 +96,8 @@ class BurgerBuilder extends Component {
                 priceAdditional = +object.price;
             }
         }
-        console.log(priceAdditional);
         const oldPrice = this.state.totalPrice;
-        console.log(oldPrice);
         const newPrice = oldPrice + priceAdditional;
-        console.log(newPrice);
         this.setState({totalPrice: newPrice, 
                        drinks: [...this.state.drinks, newDrink]});
     }
