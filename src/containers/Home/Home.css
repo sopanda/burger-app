@@ -49,7 +49,8 @@
 }
 
 .OrderBtn:hover, 
-.OrderBtn:active {
+.OrderBtn:active,
+.OrderBtn:focus {
     color: #fff;
     background-color: #fd7451;
     border-color: none;

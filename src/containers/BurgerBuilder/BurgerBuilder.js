@@ -171,7 +171,7 @@ class BurgerBuilder extends Component {
                                                     <Col md="6" sm="6">
                                                         <PriceSection price={this.state.totalPrice}/>
                                                     </Col>
-                                                    <Col md="6" sm="6">
+                                                    <Col md="6" sm="6" className={classes.MakeOrderBtnWrap}>
                                                         {
                                                         (this.state.ingredients.length !== 0) ? <Button 
                                                         color="primary"

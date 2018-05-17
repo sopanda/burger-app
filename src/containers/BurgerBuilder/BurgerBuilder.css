@@ -19,10 +19,36 @@
 }
 
 .BuilderContent {
-    position: relative;
-    top: 122px;
+    padding-top: 122px;
 }
 
 .PriceOrderMakeSection {
     min-height: 60px;
+}
+
+.MakeOrderBtnWrap {
+    text-align: right;
+}
+
+.MakeOrderBtnWrap button {
+    border-radius: 26px;
+    background: #e25d3b;
+    height: 43px;
+    width: 143px;
+    border: none;
+    letter-spacing: 1px;
+    font-weight: 100;
+    font-size: 14px;
+    text-align: center;
+    padding: 0;
+}
+
+.MakeOrderBtnWrap button:hover, 
+.MakeOrderBtnWrap button:active,
+.MakeOrderBtnWrap button:focus {
+    color: #fff;
+    background-color: #fd7451;
+    border-color: none;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
 }

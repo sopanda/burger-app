@@ -13,6 +13,7 @@ const SelectStyled = styled(Select)`
   }
   & .Select-placeholder {
     font-size: 13px;
+    padding-top: 2px;
   }
   & .Select-value-label {
     color: #e25d3b !important;
