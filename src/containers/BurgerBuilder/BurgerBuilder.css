@@ -1,8 +1,28 @@
-.BurgerBuilder {
-    
-}
-
-.Wrapper {
+.SectionBuilder {
+    position: absolute;
+    top: 0;
+    background-size: cover;
     width: 100%;
+    min-height: 100vh;
+    background-image: url('../../assets/builder-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: #fff;
 }
 
+.Black {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000;
+}
+
+.BuilderContent {
+    position: relative;
+    top: 122px;
+}
+
+.PriceOrderMakeSection {
+    min-height: 60px;
+}

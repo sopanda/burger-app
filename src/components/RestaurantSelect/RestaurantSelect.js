@@ -22,6 +22,7 @@ const SelectStyled = styled(Select)`
   & .Select-option {
     color: #e25d3b;
     font-size: 13px;
+    height: 36px;
   }
   & .Select-clear, .Select-arrow {
     color: #e25d3b !important;
