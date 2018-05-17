@@ -5,9 +5,44 @@
 
 .CheckoutBurger {
     width: 100%;
-    max-height: 400px;
     min-width: 318px;
     overflow: auto;
+}
+
+.List {
+    text-align: left;
+    font-size: 18px;
+    margin: 30px 0;
+    line-height: 37px;
+}
+
+.BtnGroup {
+    padding-top: 28px;
+}
+
+.CheckoutSummury h3 {
+    padding-top: 25px;
+}
+
+.BtnGroup button {
+    margin: 7px;
+    border: none;
+    letter-spacing: 1px;
+    font-weight: 100;
+    font-size: 14px;
+    text-align: center;
+    padding: 0;
+    border-radius: 26px;
+    height: 43px;
+}
+
+.Pay {
+    width: 206px;
+}
+
+.Cancel {
+    width: 97px;
+    background: #e25d3b;
 }
 
 @media (min-width: 600px) {

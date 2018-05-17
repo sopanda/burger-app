@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import CheckoutSummury from '../../components/Order/CheckoutSummury/CheckoutSummury';
+import classes from './Checkout.css';
+import {Container} from 'reactstrap';
 
 class Checkout extends Component {
     
@@ -40,13 +42,19 @@ class Checkout extends Component {
 
     render() {
         return(
-                <CheckoutSummury 
-                    ingredients={this.state.ingredients} 
-                    drinks={this.state.drinks}
-                    priceOrder={this.state.price}
-                    onCheckoutContinued={this.checkoutContinueHandler}
-                    onCheckoutCancelled={this.checkoutCancelledHandler}
-                />
+            <section className={classes.Checkout}>
+                <Container>
+                    <div className={classes.CheckoutContent}>
+                        <CheckoutSummury 
+                            ingredients={this.state.ingredients} 
+                            drinks={this.state.drinks}
+                            priceOrder={this.state.price}
+                            onCheckoutContinued={this.checkoutContinueHandler}
+                            onCheckoutCancelled={this.checkoutCancelledHandler}
+                        />
+                    </div>
+                </Container>
+            </section>
         );
     }
 }

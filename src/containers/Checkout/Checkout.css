@@ -1,0 +1,15 @@
+.Checkout {
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../../assets/checkout.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: #fff;
+}
+
+.CheckoutContent {
+    padding-top: 122px;
+}

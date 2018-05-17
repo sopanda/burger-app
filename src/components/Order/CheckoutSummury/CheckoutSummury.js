@@ -27,23 +27,21 @@ class CheckoutSummury extends Component {
     return (
             <div className={classes.CheckoutSummury}>
                 <Row>
-                    <Col  md="6" sm="6">
+                    <Col  md="6" sm="12">
                         <div className={classes.CheckoutBurger}>
                             <Burger ingredients={this.props.ingredients} disableSorting={disable}/>
                         </div>
                     </Col>
-                    <Col  md="6" sm="6">
+                    <Col  md="6" sm="12">
                         <h3>Your final order: </h3>
-                        <ul>
+                        <ol className={classes.List}>
                             {orderSummury}
-                        </ul>
+                        </ol>
                      <PriceSection price={this.props.priceOrder}/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Button color="success" onClick={this.props.onCheckoutContinued}>Pay</Button>
-                        <Button color="danger" onClick={this.props.onCheckoutCancelled}>Cancel</Button>
+                     <div className={classes.BtnGroup}>
+                        <Button color="success" className={classes.Pay} onClick={this.props.onCheckoutContinued}>Accept and Pay via PayU</Button>
+                        <Button color="danger" className={classes.Cancel} onClick={this.props.onCheckoutCancelled}>Cancel</Button>
+                     </div>
                     </Col>
                 </Row>
             </div>
