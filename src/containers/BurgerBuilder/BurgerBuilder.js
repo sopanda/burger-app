@@ -14,7 +14,7 @@ class BurgerBuilder extends Component {
         super(props);
         this.state = {
             ingredients: [],
-            totalPrice: 3,
+            totalPrice: 3.0,
             drinks: [],
             actualIngredients: [],
             drinksServer: [],
@@ -76,7 +76,7 @@ class BurgerBuilder extends Component {
         }
 
         const oldPrice = this.state.totalPrice;
-        if(oldPrice <= 5) {
+        if(oldPrice <= 3) {
             return;
         }
         
@@ -89,13 +89,19 @@ class BurgerBuilder extends Component {
     addDrinkHandler = (type) => {
         const newDrink = type;
         const drinks = this.state.drinksServer;
+        console.log(type);
         let priceAdditional = 0;
         for (let i = 0; i < drinks.length; i++) {
             let object = drinks[i];
-            priceAdditional = +object.price;
+            if(object.name === type) {
+                priceAdditional = +object.price;
+            }
         }
+        console.log(priceAdditional);
         const oldPrice = this.state.totalPrice;
+        console.log(oldPrice);
         const newPrice = oldPrice + priceAdditional;
+        console.log(newPrice);
         this.setState({totalPrice: newPrice, 
                        drinks: [...this.state.drinks, newDrink]});
     }
@@ -110,7 +116,7 @@ class BurgerBuilder extends Component {
         }
         
         const drinks = this.state.drinksServer;
-        
+ 
         let priceDeduction = 0;
         for (let i = 0; i < drinks.length; i++) {
             let object = drinks[i];
@@ -120,11 +126,13 @@ class BurgerBuilder extends Component {
         }
 
         const oldPrice = this.state.totalPrice;
-        if(oldPrice <= 5) {
+
+        if(oldPrice <= 3) {
             return;
         }
-        
+
         const newPrice = oldPrice - priceDeduction;
+
         this.setState({totalPrice: newPrice,
                        drinks: updatedDrinks});
     }
