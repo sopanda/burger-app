@@ -2,6 +2,32 @@ import React, {Component} from 'react';
 import Select from 'react-select';
 import axios from '../../axios-orders';
 import GeoLocation from '../GeoLocation/GeoLocation';
+import Auxiliaty from '../../hoc/Auxiliary/Auxiliary';
+import classes from './RestaurantSelect.css';
+import styled from 'styled-components';
+
+const SelectStyled = styled(Select)`
+  & .Select-control {
+    border-radius: 26px;
+    border: none;
+  }
+  & .Select-placeholder {
+    font-size: 13px;
+  }
+  & .Select-value-label {
+    color: #e25d3b !important;
+    font-weight: 500;
+    font-size: 17px;
+  }
+  & .Select-option {
+    color: #e25d3b;
+    font-size: 13px;
+  }
+  & .Select-clear, .Select-arrow {
+    color: #e25d3b !important;
+    border-color:  #e25d3b transparent transparent !important;
+  }
+`
 
 class RestaurantSelect extends Component {
   state = {
@@ -37,16 +63,17 @@ class RestaurantSelect extends Component {
   render() {
     const { restaurant } = this.state;
     return (
-      <div>
-        <Select
-            name="form-field-name"
-            value={restaurant}
-            onChange={this.handleChange}
-            options={this.state.restaurants}
-            placeholder= "Choose your burger store"
-        />
-        <GeoLocation restaurantCoords={this.coordsHandler}/>
-      </div>
+      <Auxiliaty>
+          <SelectStyled
+              name="form-field-name"
+              value={restaurant}
+              onChange={this.handleChange}
+              options={this.state.restaurants}
+              placeholder= "Choose your burger store"
+              className={classes.Select}
+          />
+          <GeoLocation restaurantCoords={this.coordsHandler}/>
+      </Auxiliaty>
     );
   }
 }

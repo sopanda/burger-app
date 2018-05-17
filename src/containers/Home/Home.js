@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Button} from 'reactstrap';
 import RestaurantSelect from '../../components/RestaurantSelect/RestaurantSelect';
 import classes from './Home.css';
-import {Container} from 'reactstrap';
+import {Container, FormGroup} from 'reactstrap';
 
 class Home extends Component {
     state = {};
@@ -17,13 +17,16 @@ class Home extends Component {
                     <section className={classes.Hero}>
                         <Container>
                             <div className={classes.HeroContent}>
-                                <h1>We do it like you’d do it</h1>
-                                <RestaurantSelect/>                                
-                                <Button 
-                                        color="primary"
-                                        onClick={this.burgerBuilderPageRoute}>
-                                        Make order
-                                </Button>
+                                    <h1>We do it like you’d do it</h1>
+                                    <FormGroup className={classes.Form}>
+                                        <RestaurantSelect/>                                
+                                        <Button 
+                                                color="primary"
+                                                onClick={this.burgerBuilderPageRoute}
+                                                className={classes.OrderBtn}>
+                                                Make order
+                                        </Button>
+                                    </FormGroup>
                             </div>
                         </Container>
                     </section>

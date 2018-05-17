@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
-import { Row, Col, Button } from 'reactstrap';
+import { Row, Col, Button, Container } from 'reactstrap';
 import classes from './BurgerBuilder.css';
 import PriceSection from '../../components/PriceSection/PriceSection';
 import DrinkControls from '../../components/Burger/DrinkControls/DrinkControls';
@@ -146,42 +146,44 @@ class BurgerBuilder extends Component {
     render() {
         return (
             <Auxiliary>
-                <Row className={classes.Wrapper}>
-                    <Col md="6" sm="6">
-                        <Burger ingredients={this.state.ingredients} sessionItems={this.selectedInSessionOrderIngredientsHandler}/>
-                    </Col>
-                    <Col md="6" sm="6">
-                        <div className={classes.BurgerBuilder}>
-                                <h2>Ingredients</h2>
-                                <BuildControls 
-                                    ingredientAdded= {this.addIngredientHandler }
-                                    ingredientRemoved= {this.removeIngredientHandler}
-                                    ingLabels={this.state.ingsLabels}
-                                />
-                                <h2>Drinks</h2>
-                                <DrinkControls 
-                                    drinkAdded= {this.addDrinkHandler}
-                                    drinkRemoved= {this.removeDrinkHandler}
-                                    drinks={this.state.drinks}
-                                    drinkLabels={this.state.drinksLabels}
-                                />
-                                <Row>
-                                    <Col md="6" sm="6">
-                                        <PriceSection price={this.state.totalPrice}/>
-                                    </Col>
-                                    <Col md="6" sm="6">
-                                        {
-                                        (this.state.ingredients.length !== 0) ? <Button 
-                                        color="primary"
-                                        onClick={this.purchaseContinueHandler}>
-                                         Make order
-                                        </Button> : null
-                                        }
-                                    </Col>
-                                </Row>
-                        </div>
-                    </Col>
-                </Row>
+                <Container>
+                    <Row className={classes.Wrapper}>
+                        <Col md="6" sm="6">
+                            <Burger ingredients={this.state.ingredients} sessionItems={this.selectedInSessionOrderIngredientsHandler}/>
+                        </Col>
+                        <Col md="6" sm="6">
+                            <div className={classes.BurgerBuilder}>
+                                    <h2>Ingredients</h2>
+                                    <BuildControls 
+                                        ingredientAdded= {this.addIngredientHandler }
+                                        ingredientRemoved= {this.removeIngredientHandler}
+                                        ingLabels={this.state.ingsLabels}
+                                    />
+                                    <h2>Drinks</h2>
+                                    <DrinkControls 
+                                        drinkAdded= {this.addDrinkHandler}
+                                        drinkRemoved= {this.removeDrinkHandler}
+                                        drinks={this.state.drinks}
+                                        drinkLabels={this.state.drinksLabels}
+                                    />
+                                    <Row>
+                                        <Col md="6" sm="6">
+                                            <PriceSection price={this.state.totalPrice}/>
+                                        </Col>
+                                        <Col md="6" sm="6">
+                                            {
+                                            (this.state.ingredients.length !== 0) ? <Button 
+                                            color="primary"
+                                            onClick={this.purchaseContinueHandler}>
+                                            Make order
+                                            </Button> : null
+                                            }
+                                        </Col>
+                                    </Row>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
             </Auxiliary>
         );
     }

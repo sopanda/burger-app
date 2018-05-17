@@ -22,23 +22,19 @@
   font-family: Stingray;
 }
 
-/* .Toolbar .Brand:hover {
-  color: #1abc9c;
+.Toolbar .Brand:hover {
+  color: #e25d3b;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
-} */
+}
 
 .Navbar {
-  /* background: #333333; */
   z-index: 100;
 }
 
 .List {
   text-align: center;
   text-transform: uppercase;
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 1px;
 }
 
 .List * {
@@ -90,5 +86,11 @@
 
 .Toolbar .List .Link:hover {
   color: #fff;
+}
+
+.List .Link {
+    font-weight: 400;
+    font-size: 16px; 
+    letter-spacing: 1px;
 }
 

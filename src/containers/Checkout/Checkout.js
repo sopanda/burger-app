@@ -6,7 +6,8 @@ class Checkout extends Component {
     /* 
     TODO:
         *order form component
-        *geolocation
+        *geolocation - done
+        *destruction for http request const {app} = this.props
     */
    
     constructor() {
