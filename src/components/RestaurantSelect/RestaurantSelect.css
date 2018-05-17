@@ -1,6 +1,8 @@
 .Select {
     max-width: 390px;
-    width: 60%;
+    margin-bottom: 15px;
+    width: 100%;
     display: inline-table;
     margin-right: 14px;
 }
+

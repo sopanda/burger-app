@@ -38,11 +38,13 @@
 
 .Pay {
     width: 206px;
+    margin: 20px 0;
 }
 
 .Cancel {
     width: 97px;
     background: #e25d3b;
+    margin: 20px 0;
 }
 
 @media (min-width: 600px) {

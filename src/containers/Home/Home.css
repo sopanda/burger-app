@@ -57,3 +57,18 @@
     -webkit-transition: all 0.35s ease;
     transition: all 0.35s ease;
 }
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .HeroContent h1 {
+        font-family: 'Montserrat';
+        font-size: 37px;
+        line-height: 76px;
+        padding-top: 115px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+}

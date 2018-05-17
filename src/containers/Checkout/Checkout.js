@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import CheckoutSummury from '../../components/Order/CheckoutSummury/CheckoutSummury';
 import classes from './Checkout.css';
-import {Container} from 'reactstrap';
 
 class Checkout extends Component {
     
@@ -43,7 +42,6 @@ class Checkout extends Component {
     render() {
         return(
             <section className={classes.Checkout}>
-                <Container>
                     <div className={classes.CheckoutContent}>
                         <CheckoutSummury 
                             ingredients={this.state.ingredients} 
@@ -53,7 +51,6 @@ class Checkout extends Component {
                             onCheckoutCancelled={this.checkoutCancelledHandler}
                         />
                     </div>
-                </Container>
             </section>
         );
     }

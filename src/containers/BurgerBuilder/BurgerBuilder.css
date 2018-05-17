@@ -44,3 +44,23 @@
     -webkit-transition: all 0.35s ease;
     transition: all 0.35s ease;
 }
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .BuilderContent {
+        padding-top: 81px;
+    }
+    .BurgerBuilder > h2 {
+        padding-top: 23px;
+    }
+    .PriceOrderMakeSection {
+        text-align: center 
+    }
+    .MakeOrderBtnWrap {
+        padding: 20px 0;
+        text-align: center;
+    }
+  }
