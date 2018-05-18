@@ -7,7 +7,7 @@
 .Hero {
     position: absolute;
     top: 0;
-    background-size: auto;
+    background-size: cover;
     width: 100%;
     min-height: 100vh;
     background-image: url('../../assets/hero.jpg');
