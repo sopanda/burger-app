@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import CheckoutSummury from '../../components/Order/CheckoutSummury/CheckoutSummury';
 import classes from './Checkout.css';
 import axios from '../../axios-orders';
+import { withRouter } from "react-router-dom";
 
 class Checkout extends Component {
     
@@ -51,8 +52,6 @@ class Checkout extends Component {
     }
 
     checkoutContinueHandler = () => {
-        this.props.history.replace("/checkout/finish-order");
-
         const restaurant = JSON.parse(sessionStorage.getItem('userRestaurant'));
 
         const ingrs = this.state.ingredientsServer;
@@ -91,16 +90,18 @@ class Checkout extends Component {
             drinks: [...drinksToCheck]
         };
 
-        console.log(order);
-
         axios.post('/order/', order)
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-
+            .then(function(response) {
+                console.log(response);
+                const payOrderId = response.data.order;
+                localStorage.setItem('payOrderId', payOrderId);
+                window.location.href = response.data.redirect_uri;
+            })
+            .catch(function (error) {
+                console.log(error);
+        });
+      
+        console.log(order);
     }
 
     render() {
@@ -120,4 +121,4 @@ class Checkout extends Component {
     }
 }
 
-export default Checkout;
+export default withRouter(Checkout);
