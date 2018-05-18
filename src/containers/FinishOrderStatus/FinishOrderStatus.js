@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import classes from './FinishOrderStatus.css';
-import {Container} from 'reactstrap';
 import axios from '../../axios-orders';
 
 const STATUS = [
-    { id: 1, status: 'NOT_PAID'},
+    { id: 1, status: 'NOT PAID'},
     { id: 2, status: 'PAID'},
     { id: 3, status: 'PENDING'},
     { id: 4, status: 'READY'},
@@ -54,36 +53,36 @@ class FinishOrderStatus extends Component {
 
         return (
             <section className={classes.FinishOrder}>
-                <Container>
                     <div className={classes.FinishOrderContent}>
-                        <h4>Order information: </h4>
+                        <h2>Order information: </h2>
                         <ul>
                             <li>
-                                Order № : {
-                                    this.state.orderNumber
-                                }
+                                Order: <span className={classes.Data}> {
+                                    this.state.orderNumber 
+                                }</span>
                             </li>
                             <li>
-                                Payment status : {
+                                Payment status : <span className={classes.Data}>  {
                                     PAYMANT_STATUS.map(status => {
                                         if(status.id === this.state.paymentStatus) {
                                             return status.status;
                                         }
+                                        return true;
                                     })
-                                }
+                                } </span>
                             </li>
                             <li>
-                                Order status : {
+                                Order status : <span className={classes.Data}>  {
                                     STATUS.map(status => {
                                         if(status.id === this.state.status) {
                                             return status.status;
                                         }
+                                        return true;
                                     })
-                                }
+                                } </span>
                             </li>
                         </ul>
                     </div>
-                </Container>
             </section>
          );
     }

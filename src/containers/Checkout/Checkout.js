@@ -68,7 +68,7 @@ class Checkout extends Component {
 
         const drinksFromCheck = this.state.drinks;
         const drinksCount = drinksFromCheck.reduce((b,c) => (
-            (b[b.findIndex(d=>d.drink===c)] || b[b.push({drink:c,quantity:0})-1]).quantity++,b
+            (b[b.findIndex(d=>d.drink===c)] || b[b.push({drink:c, quantity:0})-1]).quantity++, b
         ),[]); // counting duplicates and creating array of objects
 
         const drinks = this.state.drinksServer;
