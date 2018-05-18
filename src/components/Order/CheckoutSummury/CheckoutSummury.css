@@ -47,6 +47,10 @@
     margin: 20px 0;
 }
 
+.CheckoutSummury > .row {
+    margin-right: 0; 
+}
+
 @media (min-width: 600px) {
     .CheckoutSummury {
         width: 100%;
