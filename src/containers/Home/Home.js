@@ -11,6 +11,16 @@ class Home extends Component {
         this.props.history.push('/burger-builder');
     };
 
+    handleRestaurant = (restaurant) => {
+        const restaurantLocation = restaurant;
+        sessionStorage.setItem('userRestaurant', JSON.stringify(restaurantLocation));
+    }
+    
+    componentDidUnmount() {
+        this.handleRestaurant();
+        console.log(this.handleRestaurant());
+    }
+
     render() { 
         return (
             <div className={classes.Home}>
@@ -19,7 +29,7 @@ class Home extends Component {
                             <div className={classes.HeroContent}>
                                     <h1>We do it like you’d do it</h1>
                                     <FormGroup className={classes.Form}>
-                                        <RestaurantSelect/>                                
+                                        <RestaurantSelect restaurantHandle={this.handleRestaurant}/>                                
                                         <Button 
                                                 color="primary"
                                                 onClick={this.burgerBuilderPageRoute}

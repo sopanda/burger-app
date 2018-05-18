@@ -48,6 +48,10 @@ class RestaurantSelect extends Component {
           this.setState({ restaurant: null });
             // console.log(error);
       });
+  }           
+
+  dataForHome = () => {
+    
   }
 
   handleChange = (selectedOption) => {
@@ -61,6 +65,9 @@ class RestaurantSelect extends Component {
             this.setState({restaurants: options})
     });
 }
+  componentWillUnmount() {
+    this.props.restaurantHandle(this.state.restaurant);
+  }
 
   render() {
     const { restaurant } = this.state;
