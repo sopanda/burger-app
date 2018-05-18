@@ -5,6 +5,11 @@ import {Container} from 'reactstrap';
 class FinishOrderStatus extends Component {
     state = {};
 
+    componentDidMount() {
+        sessionStorage.removeItem('actualIngredients');
+        sessionStorage.removeItem('actualDrinks');
+    }
+
     render() { 
         return (
             <section className={classes.FinishOrder}>

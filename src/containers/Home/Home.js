@@ -5,7 +5,11 @@ import classes from './Home.css';
 import {Container, FormGroup} from 'reactstrap';
 
 class Home extends Component {
-    state = {};
+
+    constructor(props) {
+        super();
+        this.handleRestaurant = this.handleRestaurant.bind(this);
+    }
 
     burgerBuilderPageRoute = () => {
         this.props.history.push('/burger-builder');
@@ -14,11 +18,6 @@ class Home extends Component {
     handleRestaurant = (restaurant) => {
         const restaurantLocation = restaurant;
         sessionStorage.setItem('userRestaurant', JSON.stringify(restaurantLocation));
-    }
-    
-    componentDidUnmount() {
-        this.handleRestaurant();
-        console.log(this.handleRestaurant());
     }
 
     render() { 

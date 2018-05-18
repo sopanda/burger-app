@@ -22,6 +22,7 @@ class BurgerBuilder extends Component {
             drinksLabels: [],
             ingsLabels: []
         };
+        this.selectedInSessionOrderIngredientsHandler = this.selectedInSessionOrderIngredientsHandler.bind(this);
       }
 
     componentDidMount() {
