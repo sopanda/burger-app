@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import classes from './FinishOrder.css';
+import classes from './FinishOrderStatus.css';
 import {Container} from 'reactstrap';
 
-class FinishOrder extends Component {
+class FinishOrderStatus extends Component {
     state = {};
 
     render() { 
@@ -18,4 +18,4 @@ class FinishOrder extends Component {
     }
 }
  
-export default FinishOrder;
+export default FinishOrderStatus;
