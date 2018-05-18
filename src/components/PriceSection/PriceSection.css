@@ -8,3 +8,9 @@
 .PriceWrap {
     font-size: 22px;
 }
+
+@media (min-width:768px) and (max-width:1024px)  { 
+    .PriceTotal {
+        font-size: 25px;
+    }    
+}
