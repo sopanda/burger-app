@@ -32,10 +32,15 @@ const SelectStyled = styled(Select)`
 `
 
 class RestaurantSelect extends Component {
-  state = {
-    restaurants: null,
-    restaurant: '',
+  constructor(props) {
+    super(props);
+    this.state = {
+      restaurants: null,
+      restaurant: '',
+    }
+    this.props.restaurantHandle(this.state.restaurant);
   }
+  
 
   coordsHandler = (latitude, longitude) => {
     axios.get("/restaurants/" + latitude + "/" + longitude + "/")
@@ -50,12 +55,9 @@ class RestaurantSelect extends Component {
       });
   }           
 
-  dataForHome = () => {
-    
-  }
-
   handleChange = (selectedOption) => {
     this.setState({ restaurant: selectedOption });
+    this.props.restaurantHandle(this.state.restaurant);
   }
   
   componentDidMount() {
@@ -65,6 +67,7 @@ class RestaurantSelect extends Component {
             this.setState({restaurants: options})
     });
 }
+
   componentWillUnmount() {
     this.props.restaurantHandle(this.state.restaurant);
   }

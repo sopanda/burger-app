@@ -8,16 +8,22 @@ class Home extends Component {
 
     constructor(props) {
         super();
+        this.state = {
+            restaurantSelected: null
+        };
+
         this.handleRestaurant = this.handleRestaurant.bind(this);
     }
 
     burgerBuilderPageRoute = () => {
-        this.props.history.push('/burger-builder');
+        if(this.state.restaurantSelected !== '')
+            this.props.history.push('/burger-builder');
     };
 
     handleRestaurant = (restaurant) => {
         const restaurantLocation = restaurant;
         sessionStorage.setItem('userRestaurant', JSON.stringify(restaurantLocation));
+        this.setState({ restaurantSelected: restaurant });
     }
 
     render() { 

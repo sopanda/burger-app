@@ -8,9 +8,8 @@ class Checkout extends Component {
     
     /* 
     TODO:
-        *order form component
-        *geolocation - done
         *destruction for http request const {app} = this.props
+        * U CANT CONSTRACT BURGER IF U DONT SELECT RESTAURANT - done
     */
    
     constructor() {
