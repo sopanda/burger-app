@@ -34,7 +34,7 @@ class FinishOrderStatus extends Component {
     componentDidMount() {
         sessionStorage.removeItem('actualIngredients');
         sessionStorage.removeItem('actualDrinks');
-        setInterval(this.fetchDataFromServer, 10000);
+        setInterval(this.fetchDataFromServer, 1000);
     }
 
     fetchDataFromServer = () => {
