@@ -48,11 +48,19 @@
     }
 
     .FinishOrderContent ul {
-        padding: 43px;
-        font-size: 15px;
+        padding: 0;
+        font-size: 13px;
     }
 
     .Data {
         font-size: 15px;
+    }
+
+    .FinishOrderContent h2 {
+        padding: 4px;
+    }
+
+    .FinishOrderContent {
+        padding: 52px;
     }
 }
