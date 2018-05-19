@@ -50,14 +50,13 @@ class RestaurantSelect extends Component {
             this.setState({ restaurant:  {value: id, label: name}});
     })
       .catch(error => {
-          this.setState({ restaurant: null });
-            // console.log(error);
+          this.setState({ restaurant: '' });
       });
   }           
 
   handleChange = (selectedOption) => {
     this.setState({ restaurant: selectedOption });
-    this.props.restaurantHandle(this.state.restaurant);
+    this.props.restaurantHandle(selectedOption);
   }
   
   componentDidMount() {

@@ -9,9 +9,8 @@ class Home extends Component {
     constructor(props) {
         super();
         this.state = {
-            restaurantSelected: null
+            restaurantSelected: ''
         };
-
         this.handleRestaurant = this.handleRestaurant.bind(this);
     }
 
