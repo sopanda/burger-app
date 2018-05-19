@@ -15,7 +15,7 @@ class Home extends Component {
     }
 
     burgerBuilderPageRoute = () => {
-        if(this.state.restaurantSelected !== '')
+        if(this.state.restaurantSelected !== '' && this.state.restaurantSelected !== null)
             this.props.history.push('/burger-builder');
     };
 
