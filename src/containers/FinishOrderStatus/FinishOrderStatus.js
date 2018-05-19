@@ -3,18 +3,18 @@ import classes from './FinishOrderStatus.css';
 import axios from '../../axios-orders';
 
 const STATUS = [
-    { id: 1, status: 'NOT PAID'},
-    { id: 2, status: 'PAID'},
-    { id: 3, status: 'PENDING'},
-    { id: 4, status: 'READY'},
-    { id: 5, status: 'DELIVERED'}
+    { id: 0, status: 'NOT PAID'},
+    { id: 1, status: 'PAID'},
+    { id: 2, status: 'PENDING'},
+    { id: 3, status: 'READY'},
+    { id: 4, status: 'DELIVERED'}
 ];
 
 const PAYMANT_STATUS = [
-    { id: 1, status: 'PENDING'},
-    { id: 2, status: 'COMPLETED'},
-    { id: 3, status: 'CANCELED'},
-    { id: 4, status: 'REJECTED'}
+    { id: 0, status: 'PENDING'},
+    { id: 1, status: 'COMPLETED'},
+    { id: 2, status: 'CANCELED'},
+    { id: 3, status: 'REJECTED'}
 ];
 
 
