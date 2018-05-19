@@ -14,7 +14,7 @@ class BurgerBuilder extends Component {
         super(props);
         this.state = {
             ingredients: [],
-            totalPrice: 3.0,
+            totalPrice: 0,
             drinks: [],
             actualIngredients: [],
             drinksServer: [],
@@ -38,6 +38,11 @@ class BurgerBuilder extends Component {
           let ingredientsServer = res.data.map(ing => ({id:ing.id, name: ing.name, price:ing.price}));
           let ingsLabels = res.data.map(ing => (ing.name));
           this.setState({ ingredientsServer: ingredientsServer, ingsLabels : ingsLabels});
+        });
+        axios.get('/menu/start-price/')
+        .then(res => {
+          let defPrice = res.data.start_price;
+          this.setState({ totalPrice: defPrice});
         });
     }
 
